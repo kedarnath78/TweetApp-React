@@ -5,6 +5,7 @@ import Menu from './NavBar'
 import Print from './Print'
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { Url } from "../constants/global"
 
 let tweets = []
 let users = []
@@ -21,7 +22,7 @@ const TweetHistory = () => {
 
     function fetchUsers() {
         console.log(location.state)
-        fetch('http://localhost:8083/allTweets')
+        fetch(`${Url}/allTweets`)
             .then(res => {
                 return res.json()
             })
@@ -40,7 +41,7 @@ const TweetHistory = () => {
     }
 
     function fetchTweetsOfUser(data) {
-        fetch('http://localhost:8083/allTweetsOfUser', {
+        fetch(`${Url}/allTweetsOfUser`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

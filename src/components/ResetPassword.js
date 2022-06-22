@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router';
 import Menu from './NavBar'
+import { Url } from "../constants/global"
 
 const ResetPassword = () => {
 
@@ -27,7 +28,7 @@ const ResetPassword = () => {
         }
 
         else {
-            fetch("http://localhost:8083/forgot", {
+            fetch(`${Url}/forgot`, {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -46,7 +47,7 @@ const ResetPassword = () => {
     useEffect(() => {
         console.log(userid)
         console.log(location)
-        fetch("http://localhost:8083/user/searchid", {
+        fetch(`${Url}/user/searchid`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: userid
