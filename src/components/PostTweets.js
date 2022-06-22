@@ -4,6 +4,7 @@ import { FaStickyNote } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router';
 import Menu from './NavBar'
+import { Url } from "../constants/global"
 
 const PostTweets = () => {
     const [tweetContent, setTweetContent] = useState('')
@@ -23,7 +24,7 @@ const PostTweets = () => {
             }
             else {
                 console.log(tweetContent)
-                fetch("http://localhost:8083/addTweet", {
+                fetch(`${Url}/addTweet`, {
                     method: 'POST',
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({

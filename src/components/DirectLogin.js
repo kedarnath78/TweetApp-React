@@ -3,6 +3,7 @@ import { Container, Form, Button } from "react-bootstrap"
 import { useNavigate } from "react-router"
 import Header from "./Header"
 import "../styles/Login.css"
+import { Url } from "../constants/global"
 
 export default function DirectLogin() {
     let flag = 'false'
@@ -42,7 +43,7 @@ export default function DirectLogin() {
     }
 
     useEffect(() => {
-        fetch('http://localhost:8083/users/all')
+        fetch(`${Url}/users/all`)
             .then(res => {
                 return res.json()
             })

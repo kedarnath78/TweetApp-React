@@ -2,6 +2,7 @@ import { Table, Button, Modal, ModalHeader, ModalBody,  ModalTitle } from "react
 import { useEffect, useState, React } from "react";
 import { useNavigate,useLocation } from "react-router";
 import Menu from "./NavBar";
+import { Url } from "../constants/global"
 
 let replies = []
 const ViewReplies = () => {
@@ -17,7 +18,7 @@ const ViewReplies = () => {
 
     function fetchUserReplies() {
         console.log(location.state)
-        fetch('http://localhost:8083/getAllReplies')
+        fetch(`${Url}/getAllReplies`)
             .then(res => {
                 return res.json()
             })
